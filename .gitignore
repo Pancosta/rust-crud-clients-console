@@ -1,0 +1,9 @@
+# Saída de compilação do Rust
+/target
+
+# Arquivos temporários e de IDEs
+/.vscode/
+/.idea/
+*.rs.bk
+*.swp
+*.tmp

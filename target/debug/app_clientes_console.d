@@ -1,1 +1,0 @@
-/home/pancosta/projeto_rust_console/app_clientes_console/target/debug/app_clientes_console: /home/pancosta/projeto_rust_console/app_clientes_console/src/main.rs /home/pancosta/projeto_rust_console/app_clientes_console/src/tela/ler.rs /home/pancosta/projeto_rust_console/app_clientes_console/src/tela/menu.rs /home/pancosta/projeto_rust_console/app_clientes_console/src/tela/mod.rs
