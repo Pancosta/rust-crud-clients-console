@@ -1,3 +1,4 @@
+#[derive(Default)]
 pub struct Cliente{
     pub id: i32,
     pub nome: String,
