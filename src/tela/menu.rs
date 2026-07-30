@@ -1,7 +1,11 @@
-use crate::tela:: ler;
+use crate::tela:: ler::*;
+use crate::tela:: operacoes_basicas::*;
 
 pub fn mostrar_menu(){
+    limpar_tela();
     loop{
+        limpar_tela();
+
         println!("\
             ============ Menu ===========\n\n\
             Escolha uma das opções abaixo:\n\n\
@@ -12,7 +16,8 @@ pub fn mostrar_menu(){
             0 - Sair do programa\n\
         ");
 
-    let opcao = ler::ler_dados_int();
+    let opcao = ler_dados_int();
+    limpar_tela();
     match opcao{
         1 => println!("Opção 1"),
         2 => println!("Opção 2"),
@@ -25,8 +30,10 @@ pub fn mostrar_menu(){
         _ => println!("Opção Inválida")
     }
 
-    println!("Digite enter para continuar...");
-    ler::ler_dados();
+
+    //println!("Digite enter para continuar...");
+    //ler_dados();
+    esperar(2);
 
     }
 }
