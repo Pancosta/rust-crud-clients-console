@@ -23,7 +23,7 @@ pub fn mostrar_menu(clientes: &mut Vec<Cliente>){
         1 => incluir_cliente(clientes),
         2 => println!("Opção 2"),
         3 => println!("Opção 3"),
-        4 => println!("Opção 4"),
+        4 => listar_clientes(clientes),
         0 => {
             println!("Finalizando ...");
             return;
@@ -34,7 +34,6 @@ pub fn mostrar_menu(clientes: &mut Vec<Cliente>){
 
     //println!("Digite enter para continuar...");
     //ler_dados();
-    esperar(2);
 
     }
 }

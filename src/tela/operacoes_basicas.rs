@@ -10,3 +10,6 @@ pub fn esperar( tempo: u64){
     sleep(Duration::from_secs(tempo));
 
 }
+pub fn linha(){
+    println!("{}","-".to_string().repeat(40));
+}

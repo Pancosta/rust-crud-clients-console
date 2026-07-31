@@ -25,3 +25,34 @@ pub fn incluir_cliente(clientes: &mut Vec<Cliente>){
     esperar(1);
 
 }
+
+pub fn listar_clientes(clientes: &mut Vec<Cliente>){
+    limpar_tela();
+
+    if clientes.len() == 0{
+        println!("Não existem clientes cadastrados!");
+        esperar(1);
+        return;
+    }
+
+
+    linha();
+
+    for cliente in clientes{
+        mostrar_cliente(cliente);
+        linha();
+    }
+
+    println!("Digite enter para continuar...");
+    ler_dados();
+
+}
+
+fn mostrar_cliente(cliente: &mut Cliente) {
+    println!("\
+        ID: {}\n\
+        Nome: {}\n\
+        Cpf: {}\n\
+        Endereço: {}\
+",cliente.id,cliente.nome,cliente.cpf,cliente.endereco);
+}
