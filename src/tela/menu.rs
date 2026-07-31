@@ -11,9 +11,9 @@ pub fn mostrar_menu(clientes: &mut Vec<Cliente>){
             ============ Menu ===========\n\n\
             Escolha uma das opções abaixo:\n\n\
             1 - Cadastrar cliente\n\
-            2 - Alterar cliente\n\
-            3 - Excluir cliente\n\
-            4 - Listar clientes\n\
+            2 - Listar clientes\n\
+            3 - Editar cliente\n\
+            4 - Excluir cliente\n\
             0 - Sair do programa\n\
         ");
 
@@ -21,19 +21,15 @@ pub fn mostrar_menu(clientes: &mut Vec<Cliente>){
 
     match opcao{
         1 => incluir_cliente(clientes),
-        2 => alterar_cliente(clientes),
-        3 => println!("Opção 3"),
-        4 => listar_clientes(clientes),
+        2 => listar_clientes(clientes),
+        3 => alterar_cliente(clientes),
+        4 => excluir_cliente(clientes),
         0 => {
             println!("Finalizando ...");
             return;
         },
-        _ => println!("Opção Inválida")
+        _ => println!("Opção Inválida!")
     }
-
-
-    //println!("Digite enter para continuar...");
-    //ler_dados();
 
     }
 }
