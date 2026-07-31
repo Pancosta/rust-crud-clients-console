@@ -1,19 +1,13 @@
 use crate::models::cliente::Cliente;
-use super::{ler::ler_dados, operacoes_basicas::*};
+use super::{ler::*, operacoes_basicas::*};
 
 pub fn incluir_cliente(clientes: &mut Vec<Cliente>){
 
     limpar_tela();
 
     let mut cliente: Cliente = Cliente::default();
-
     cliente.id = clientes.len() + 1;
-    println!("Digite o Nome:");
-    cliente.nome = ler_dados();
-    println!("Digite o Cpf:");
-    cliente.cpf = ler_dados();
-    println!("Digite o Endereço:");
-    cliente.endereco = ler_dados();
+    digitar_dados_do_cliente(&mut cliente);
 
 
 
@@ -28,13 +22,9 @@ pub fn incluir_cliente(clientes: &mut Vec<Cliente>){
 
 pub fn listar_clientes(clientes: &mut Vec<Cliente>){
     limpar_tela();
-
-    if clientes.len() == 0{
-        println!("Não existem clientes cadastrados!");
-        esperar(1);
+    if checar_clientes(clientes){
         return;
     }
-
 
     linha();
 
@@ -47,8 +37,51 @@ pub fn listar_clientes(clientes: &mut Vec<Cliente>){
     ler_dados();
 
 }
+pub fn alterar_cliente(clientes: &mut Vec<Cliente>){
+    limpar_tela();
+    if checar_clientes(clientes){
+        return;
+    }
 
-fn mostrar_cliente(cliente: &mut Cliente) {
+    let id = captura_id();
+    if let Some((indice,cliente)) = buscar_cliente_id(clientes,id){
+        linha();
+        println!("Alterando o cliente...");
+        linha();
+        mostrar_cliente(cliente);
+        linha();
+        digitar_dados_do_cliente(&mut clientes[indice]);
+        limpar_tela();
+        println!("Alteração comcluida!");
+    }else{
+        limpar_tela();
+        println!("Cliente não encontrado!");
+    }
+    
+    esperar(1);
+
+}
+
+fn captura_id() -> usize {
+    limpar_tela();
+    println!("Digite o ID do cliente:");
+    ler_dados_int()
+}
+
+fn buscar_cliente_id(clientes: &Vec <Cliente>,id:usize) -> Option<(usize, &Cliente)>{
+    clientes.iter().enumerate().find(|(_,cliente)| cliente.id == id)
+}
+
+fn digitar_dados_do_cliente(cliente: &mut Cliente){
+    println!("Digite o Nome:");
+    cliente.nome = ler_dados();
+    println!("Digite o Cpf:");
+    cliente.cpf = ler_dados();
+    println!("Digite o Endereço:");
+    cliente.endereco = ler_dados();
+}
+
+fn mostrar_cliente(cliente: &Cliente) {
     println!("\
         ID: {}\n\
         Nome: {}\n\
@@ -56,3 +89,15 @@ fn mostrar_cliente(cliente: &mut Cliente) {
         Endereço: {}\
 ",cliente.id,cliente.nome,cliente.cpf,cliente.endereco);
 }
+
+
+fn checar_clientes(clientes: &mut Vec<Cliente>)-> bool{
+    if clientes.len() == 0{
+        println!("Não existem clientes cadastrados!");
+        return true;
+    }else{
+        return false;
+    }
+}
+
+

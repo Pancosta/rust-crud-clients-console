@@ -18,10 +18,10 @@ pub fn mostrar_menu(clientes: &mut Vec<Cliente>){
         ");
 
     let opcao = ler_dados_int();
-   
+
     match opcao{
         1 => incluir_cliente(clientes),
-        2 => println!("Opção 2"),
+        2 => alterar_cliente(clientes),
         3 => println!("Opção 3"),
         4 => listar_clientes(clientes),
         0 => {
