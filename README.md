@@ -1,6 +1,6 @@
-# App Clientes Console
+# Rust CRUD Clients Console
 
-Aplicação de linha de comando (CLI) desenvolvida em **Rust** para realizar o gerenciamento de clientes em memória.
+Aplicação de linha de comando (CLI) desenvolvida em Rust para gerenciamento de clientes, implementando operações de CRUD (Create, Read, Update e Delete) diretamente no terminal.
 
 O sistema permite cadastrar, listar, alterar e excluir clientes através de um menu interativo executado no terminal. O projeto foi desenvolvido com foco no aprendizado da linguagem Rust, utilizando conceitos como módulos, structs, vetores, funções e tratamento de entrada do usuário.
 
@@ -82,7 +82,7 @@ git clone https://github.com/Pancosta/rust-crud-clients-console.git
 Entre na pasta:
 
 ```bash
-cd app_clientes_console
+cd rust-crud-clients-console
 ```
 
 ## Instalando as dependências
