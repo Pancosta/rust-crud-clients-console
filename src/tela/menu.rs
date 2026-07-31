@@ -1,7 +1,8 @@
 use crate::tela:: ler::*;
 use crate::tela:: operacoes_basicas::*;
-
-pub fn mostrar_menu(){
+use crate::models::cliente::Cliente;
+use crate::tela::servico_cliente::*;
+pub fn mostrar_menu(clientes: &mut Vec<Cliente>){
     limpar_tela();
     loop{
         limpar_tela();
@@ -17,9 +18,9 @@ pub fn mostrar_menu(){
         ");
 
     let opcao = ler_dados_int();
-    limpar_tela();
+   
     match opcao{
-        1 => println!("Opção 1"),
+        1 => incluir_cliente(clientes),
         2 => println!("Opção 2"),
         3 => println!("Opção 3"),
         4 => println!("Opção 4"),
